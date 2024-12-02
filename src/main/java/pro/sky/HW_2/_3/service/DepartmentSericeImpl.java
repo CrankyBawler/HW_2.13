@@ -53,4 +53,13 @@ public class DepartmentSericeImpl implements DepartmentService {
                 .stream()
                 .collect(Collectors.groupingBy(Employee ::getDepartment));
     }
+
+    @Override
+    public int sumSalaryForDepartment(int departmentId) {
+        return employeeServiceImp.findAll()
+                .stream()
+                .filter(employee -> employee.getDepartment()==departmentId)
+                .mapToInt(Employee::getSalary)
+                .sum();
+    }
 }

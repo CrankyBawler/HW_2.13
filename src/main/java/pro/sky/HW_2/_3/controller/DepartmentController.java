@@ -33,13 +33,18 @@ public class DepartmentController {
         return departmentService.minSalary(departmentId);
     }
 
-    @GetMapping("/all")
+    @GetMapping("/all-departments")
+    public Map<Integer, List<Employee>> findAllForDepartment() {
+        return departmentService.allForDepartment();
+    }
+
+    @GetMapping("/{id}/employees")
     public List<Employee> findForDepartment(@RequestParam int departmentId) {
         return (List<Employee>) departmentService.findForDepartment(departmentId);
     }
 
-    @GetMapping("/all-departments")
-    public Map<Integer, List<Employee>> findAllForDepartment() {
-        return departmentService.allForDepartment();
+    @GetMapping("{id}/salary/sum")
+    public int sumSalaryForDepartment(@RequestParam int departmentId) {
+        return departmentService.sumSalaryForDepartment(departmentId);
     }
 }
