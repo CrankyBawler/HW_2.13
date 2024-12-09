@@ -27,6 +27,11 @@ public class EmployeeServiceImpTest {
             throw new RuntimeException(e);
         }
         assertEquals(actual, expected);
+        assertThrows(EmployeeAlreadyAddedException.class, () -> {
+            employeeService.add("Иван", "Иванов", 100, 10);
+        });
+
+
 
     }
 

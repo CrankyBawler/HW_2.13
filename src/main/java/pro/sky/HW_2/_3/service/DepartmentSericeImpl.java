@@ -14,7 +14,7 @@ public class DepartmentSericeImpl implements DepartmentService {
 
     private final EmployeeServiceImp employeeServiceImp;
 
-    public DepartmentSericeImpl() {
+    public DepartmentSericeImpl(EmployeeServiceImp employeeServiceImp) {
         this.employeeServiceImp = employeeServiceImp;
     }
 
